@@ -37,6 +37,8 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(
                         requests-> requests
                                 .requestMatchers("/","/register","/login").permitAll()
+                                .requestMatchers("/admin/**").hasRole("ADMIN")
+                                .requestMatchers("/secure/users").hasAnyRole("USER","ADMIN")
                                 .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())

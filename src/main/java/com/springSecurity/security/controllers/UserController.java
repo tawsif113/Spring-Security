@@ -51,4 +51,13 @@ public class UserController {
     public String secure(){
         return "Secure";
     }
+
+    @GetMapping("/admin/page")
+    public String admin(){
+        return "Admin Page";
+    }
+    @GetMapping("/secure/users")
+    public String secureUsers(){
+        return "Secure Users";
+    }
 }
